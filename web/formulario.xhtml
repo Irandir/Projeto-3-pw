@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <nav id="menu" class="menu">
+            <h1>Menu Princípal</h1>
+            <ul>
+                <li><a href="formulario.xhtml">FORMULARIO</a></li><br/>
+                <li><a href="lista.xhtml">LISTA DE DADOS</a></li><br/>
+                <li><a href="index.xhtml">SAIR</a></li>
+            </ul>
+        </nav>      
+        
+        <h1>pesquisa da saúde da mulher.</h1>
+
+	<h:form>
+            <h:panelGrid columns="2" cellpadding="4">
+                <h:outputLabel value="Nome:"/>
+                <p:inputText id="nome" value="#{mulherBean.mulher.nome}"/>    
+                
+                <h:outputLabel value="Data que vc nascel:"/>
+                <p:calendar id="data" value="#{mulherBean.mulher.nascimento}" pattern="dd-MM-yyyy" mask="true" />
+                
+                <h:outputLabel value="Ultima Menstruação:"/>
+                <p:calendar id="ultima" value="#{mulherBean.mulher.UM}" pattern="dd-MM-yyyy" mask="true" />
+            
+                <h:outputLabel value="Tipo do ciclo:"/>
+                <p:selectOneRadio id="tipo" value="#{mulherBean.mulher.tipo}">
+                    <f:selectItem itemLabel="Regular" itemValue="Regular" />
+                    <f:selectItem itemLabel="Irregular" itemValue="Irregular" />
+                </p:selectOneRadio>
+            
+                
+            </h:panelGrid>
+            
+            <h:panelGrid columns="1" cellpadding="1">
+                <h:commandButton value="Enviar" action="#{mulherBean.cria}"/>
+            </h:panelGrid>
+            
+            
+        </h:form>
+        
+    </h:body>
+</html>
+
