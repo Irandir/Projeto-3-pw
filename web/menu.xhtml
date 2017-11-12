@@ -4,15 +4,17 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
     <h:head>
-        <title>Facelet Title</title>
+        <title>Menu</title>
     </h:head>
+    #{logadoBean.redireciona()}
     <h:body>
         <nav id="menu" class="menu">
             <h1>Menu Princípal</h1>
             <ul>
                 <li><a href="formulario.xhtml">FORMULARIO</a></li><br/>
-                <li><a href="lista.xhtml">LISTA DE DADOS</a></li><br/>
+                <li><a href="#{listaBean.redireciona()}">LISTA DE DADOS</a></li><br/>
                 <li><a href="index.xhtml">SAIR</a></li>
             </ul>
         </nav>

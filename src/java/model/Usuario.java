@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,13 +15,13 @@ import javax.persistence.Id;
  * @author Irandir
  */
 @Entity
-public class Usuario {
+public class Usuario implements Serializable{
     @Id
     @GeneratedValue
     private Integer id;
     private String login;
     private String senha;
-
+    private String nivelDeAcesso;
     public String getLogin() {
         return login;
     }
@@ -31,6 +32,14 @@ public class Usuario {
 
     public String getSenha() {
         return senha;
+    }
+
+    public String getNivelDeAcesso() {
+        return nivelDeAcesso;
+    }
+
+    public void setNivelDeAcesso(String nivelDeAcesso) {
+        this.nivelDeAcesso = nivelDeAcesso;
     }
 
     public void setSenha(String senha) {

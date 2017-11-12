@@ -7,18 +7,19 @@
     <h:head>
         <title>Facelet Title</title>
     </h:head>
+    #{logadoBean.redireciona()}
     <h:body>
 
         <nav id="menu" class="menu">
             <h1>Menu Princípal</h1>
             <ul>
                 <li><a href="formulario.xhtml">FORMULARIO</a></li><br/>
-                <li><a href="lista.xhtml">LISTA DE DADOS</a></li><br/>
+                <li><a href="#{listaBean.redireciona()}">LISTA DE DADOS</a></li><br/>
                 <li><a href="index.xhtml">SAIR</a></li>
             </ul>
         </nav>      
         
-        <h1>pesquisa da saúde da mulher.</h1>
+        <h1>Pesquisa da saúde da mulher.</h1>
 
 	<h:form>
             <h:panelGrid columns="2" cellpadding="4">

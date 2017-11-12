@@ -15,8 +15,9 @@ import util.UsuarioDAO;
 public class TesteUsuario {
     public static void main(String[] args) {
         Usuario crack = new Usuario();
-        crack.setLogin("a");
+        crack.setLogin("b");
         crack.setSenha("1");
+        crack.setNivelDeAcesso("lid");
         new UsuarioDAO().insert(crack);
     }
 }
