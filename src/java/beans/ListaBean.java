@@ -27,15 +27,15 @@ import model.pojo.Usuario;
 @SessionScoped
 public class ListaBean {
 
-    private Pesquisador pesquisador;
-
+    private Pesquisador pesquisadorLogado;
+    
     public String redireciona() {
         Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
         List<Pesquisador> pesquisadores = new PesquisadorHibernate().recuperarTodos();
-        pesquisador = (Pesquisador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pesquisador");
+        pesquisadorLogado = (Pesquisador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pesquisador");
 
-        if (!pesquisador.getNivel().getNivel().equals("ESTAGIARIO")) {
+        if (!pesquisadorLogado.getNivel().getNivel().equals("ESTAGIARIO")) {
 
             return "lista.xhtml";
         }
@@ -45,9 +45,9 @@ public class ListaBean {
 
     public List<Mulher> mulheres() {
 
-        int id_da_equipe = pesquisador.getEquipe().getId();
-
-        if (pesquisador.getNivel().getNivel().equals("ADMINISTRADOR")) {
+        int id_da_equipe = pesquisadorLogado.getEquipe().getId();
+        
+        if (pesquisadorLogado.getNivel().getNivel().equals("ADMINISTRADOR")) {
             return new MulherHibernate().recuperarTodos();
         }
 
@@ -73,4 +73,14 @@ public class ListaBean {
         return entrevistadas;
     }
 
+    public Pesquisador getPesquisador() {
+        return pesquisadorLogado;
+    }
+
+    public void setPesquisador(Pesquisador pesquisador) {
+        this.pesquisadorLogado = pesquisador;
+    }
+
+   
+    
 }

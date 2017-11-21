@@ -108,10 +108,6 @@ public class Mulher implements Serializable {
         this.pesquisador = pesquisador;
     }
 
-   
-
-   
-
     @Override
     public String toString() {
         return "Mulher{" + "id=" + id + ", nome=" + nome + ", nascimento=" + nascimento + ", tipo=" + tipo + ", ultimaMenstruacao=" + ultimaMenstruacao + ", pM=" + pM + ", pesquisador=" + pesquisador + '}';
