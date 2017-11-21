@@ -37,7 +37,7 @@
                     </p:column>
 
                     <p:column headerText="Nascimento">
-                        <h:outputText value="#{mulher.nascimento}" />
+                        <h:outputText value="#{listaBean.formateData(mulher.nascimento)}" />
                     </p:column>
 
                     <p:column headerText="Tipo">
@@ -45,11 +45,11 @@
                     </p:column>
 
                     <p:column headerText="Ultima Menstruação">
-                        <h:outputText value="#{mulher.ultimaMenstruacao}" />
+                        <h:outputText value="#{listaBean.formateData(mulher.ultimaMenstruacao)}" />
                     </p:column>
 
                     <p:column headerText="Proxima Menstruação">
-                        <h:outputText value="#{mulher.PM}" />
+                        <h:outputText value="#{listaBean.formateData(mulher.PM)}" />
                     </p:column> 
                     <p:column headerText="Equipe">
                         <h:outputText value="#{mulher.pesquisador.equipe.nome}" />

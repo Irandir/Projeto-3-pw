@@ -5,20 +5,17 @@
  */
 package beans;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import model.DAO.hibernates.MulherHibernate;
-import model.DAO.hibernates.NivelHibernate;
 import model.DAO.hibernates.PesquisadorHibernate;
 import model.pojo.Mulher;
-import model.pojo.Nivel;
-import model.pojo.NivelAcessoEnum;
 import model.pojo.Pesquisador;
 import model.pojo.Usuario;
 
@@ -30,8 +27,9 @@ import model.pojo.Usuario;
 @SessionScoped
 public class ListaBean {
 
+
     private Pesquisador pesquisadorLogado;
-    
+
     public String redireciona() {
         Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
@@ -49,7 +47,7 @@ public class ListaBean {
     public List<Mulher> mulheres() {
 
         int id_da_equipe = pesquisadorLogado.getEquipe().getId();
-        
+
         if (pesquisadorLogado.getNivel().getNivel().equals("ADMINISTRADOR")) {
             return new MulherHibernate().recuperarTodos();
         }
@@ -92,6 +90,9 @@ public class ListaBean {
         this.pesquisadorLogado = pesquisadorLogado;
     }
 
-    
-    
+    public String formateData(Date data){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(data);
+    }
+
 }
