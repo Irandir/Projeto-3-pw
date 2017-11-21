@@ -5,7 +5,10 @@
  */
 package beans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -81,6 +84,14 @@ public class ListaBean {
         this.pesquisadorLogado = pesquisador;
     }
 
-   
+    public Pesquisador getPesquisadorLogado() {
+        return pesquisadorLogado;
+    }
+
+    public void setPesquisadorLogado(Pesquisador pesquisadorLogado) {
+        this.pesquisadorLogado = pesquisadorLogado;
+    }
+
+    
     
 }

@@ -8,16 +8,17 @@
     </h:head>
     #{logadoBean.redireciona()}
     <h:body>
-      
+
         <nav id="menu" class="menu">
-                <h1>Menu Princípal</h1>
-                <ul>
-                    <li><a href="formulario.xhtml">FORMULARIO</a></li><br/>
-                    <li><a href="#{listaBean.redireciona()}">LISTA DE DADOS</a></li><br/>
-                    <li><a href="index.xhtml">SAIR</a></li>
-                </ul>
+            <h1>Menu Princípal</h1>
+            <ul>
+                <li><a href="formulario.xhtml">FORMULARIO</a></li><br/>
+                <li><a href="#{listaBean.redireciona()}" >LISTA DE DADOS</a></li><br/>
+                <li><a href="#{cadastroBean.verificaNivel()}">CADASTRO</a></li><br/>
+                <li><a href="index.xhtml">SAIR</a></li>
+            </ul>
         </nav>    
-        
+
         <h1>Lista</h1>
         <h:form id="carForm">
             <p:fieldset id="availableCarsField" legend="Entrevistadas">
@@ -47,8 +48,8 @@
                         <h:outputText value="#{mulher.ultimaMenstruacao}" />
                     </p:column>
 
-                     <p:column headerText="Proxima Menstruação">
-                         <h:outputText value="#{mulher.PM}" />
+                    <p:column headerText="Proxima Menstruação">
+                        <h:outputText value="#{mulher.PM}" />
                     </p:column> 
                     <p:column headerText="Equipe">
                         <h:outputText value="#{mulher.pesquisador.equipe.nome}" />
@@ -60,7 +61,7 @@
             </p:fieldset>
 
         </h:form>
-     
-</h:body>
+
+    </h:body>
 </html>
 

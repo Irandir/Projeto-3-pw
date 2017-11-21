@@ -20,30 +20,32 @@
             </ul>
         </nav>      
         
-        <h1>Pesquisa da saúde da mulher.</h1>
+        <h1>Cadastro.</h1>
 
 	<h:form>
             <h:panelGrid columns="2" cellpadding="4">
-                <h:outputLabel value="Nome:"/>
-                <p:inputText id="nome" value="#{formularioBean.mulher.nome}"/>    
+                <h:outputLabel value="Nome Completo:"/>
+                <p:inputText id="nome" value="#{cadastroBean.pesquisador.nome}"/>    
                 
-                <h:outputLabel value="Data que vc nascel:"/>
-                <p:calendar id="data" value="#{formularioBean.mulher.nascimento}" pattern="dd-MM-yyyy" mask="true" />
+                <h:outputLabel value="Login:"/>
+                <p:inputText id="login" value="#{cadastroBean.usuario.login}"/>
                 
-                <h:outputLabel value="Ultima Menstruação:"/>
-                <p:calendar id="ultima" value="#{formularioBean.mulher.ultimaMenstruacao}" pattern="dd-MM-yyyy" mask="true" />
-            
-                <h:outputLabel value="Tipo do ciclo:"/>
-                <p:selectOneRadio id="tipo" value="#{formularioBean.ciclo.tipo}">
+                <h:outputLabel value="Senha:"/>
+                <p:password id="senha" value="#{cadastroBean.usuario.senha}"/>
+                
+                
+      
+                <!--h:outputLabel value="Tipo do ciclo:"/>
+                <p:selectOneRadio id="tipo" value="">
                     <f:selectItem itemLabel="Regular" itemValue="Regular" />
                     <f:selectItem itemLabel="Irregular" itemValue="Irregular" />
-                </p:selectOneRadio>
+                </p:selectOneRadio-->
             
                 
             </h:panelGrid>
             
             <h:panelGrid columns="1" cellpadding="1">
-                <h:commandButton value="Enviar" action="#{formularioBean.cria}"/>
+                <h:commandButton value="Enviar" action="#{cadastroBean.cadastrar()}"/>
             </h:panelGrid>
             
             

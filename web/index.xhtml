@@ -8,7 +8,7 @@
     </h:head>
     #{sairBean.logooff()}
     <h:body>
-        
+        <center>
         <h:form>
             <h:panelGrid columns="2" cellpadding="3">
                 Login: <p:inputText id="login" label="Login" value="#{indexBean.usuario.login}" required="true"/>
@@ -17,7 +17,7 @@
                 <p:commandButton value="Logar" action="#{indexBean.enviar}"/>
             </h:panelGrid>
         </h:form>
-       
+       </center>
     </h:body>
 </html>
 
