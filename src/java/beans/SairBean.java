@@ -16,6 +16,6 @@ import javax.faces.context.FacesContext;
 public class SairBean {
     public void logooff(){
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", null);
-       
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("pesquisador", null);
     }
 }

@@ -48,7 +48,11 @@ Contributor(s):
     <property name="hibernate.connection.password">root</property>
     <property name="hbm2ddl.auto">update</property>
     <!-- Names the annotated entity class -->
-    <mapping class="model.Mulher"/>
-    <mapping class="model.Usuario"/>
+    <mapping class="model.pojo.Nivel"/>
+    <mapping class="model.pojo.Ciclo"/>
+    <mapping class="model.pojo.Usuario"/>
+    <mapping class="model.pojo.Equipe"/>
+    <mapping class="model.pojo.Pesquisador"/>
+    <mapping class="model.pojo.Mulher"/>
   </session-factory>
 </hibernate-configuration>

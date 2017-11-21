@@ -21,7 +21,7 @@
         <h1>Lista</h1>
         <h:form id="carForm">
             <p:fieldset id="availableCarsField" legend="Entrevistadas">
-                <p:dataTable id="availableMulher" var="mulher" value="#{mulherBean.mulheres}">
+                <p:dataTable id="availableMulher" var="mulher" value="#{listaBean.mulheres()}">
                     <p:column style="width:20px">
                         <h:outputText id="dragIcon" styleClass="ui-icon ui-icon-arrow-4" />
                         <p:draggable for="dragIcon" revert="true" helper="clone"/>
@@ -40,11 +40,11 @@
                     </p:column>
 
                     <p:column headerText="Tipo">
-                            <h:outputText value="#{mulher.tipo}" />
+                        <h:outputText value="#{mulher.tipo.tipo}" />
                     </p:column>
 
                     <p:column headerText="Ultima Menstruação">
-                            <h:outputText value="#{mulher.UM}" />
+                        <h:outputText value="#{mulher.ultimaMenstruacao}" />
                     </p:column>
 
                      <p:column headerText="Proxima Menstruação">

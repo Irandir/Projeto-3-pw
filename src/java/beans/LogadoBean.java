@@ -6,10 +6,14 @@
 package beans;
 
 import java.io.IOException;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import model.Usuario;
+import model.DAO.hibernates.PesquisadorHibernate;
+import model.pojo.Pesquisador;
+import model.pojo.Usuario;
+
 
 /**
  *
@@ -20,8 +24,16 @@ import model.Usuario;
 public class LogadoBean {
      public void redireciona() throws IOException{
         Usuario usuario = (Usuario)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        
         if(usuario==null){
             FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+        }else{
+            List<Pesquisador> pesquisadores = new PesquisadorHibernate().recuperarTodos();
+            for (Pesquisador pesquisador : pesquisadores) {
+                if(pesquisador.getUsuario().getId() == usuario.getId()){
+                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("pesquisador", pesquisador);
+                }
+            }
         }
         
     }

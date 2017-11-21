@@ -3,25 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package model.pojo;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
  *
- * @author Irandir
+ * @author Herikles
  */
 @Entity
 public class Usuario implements Serializable{
     @Id
     @GeneratedValue
-    private Integer id;
+    private int id;
+    @Column(unique = true)
     private String login;
     private String senha;
-    private String nivelDeAcesso;
+
+    public Usuario() {
+    }
+
+    public Usuario(String login, String senha) {
+        this.login = login;
+        this.senha = senha;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -34,25 +44,16 @@ public class Usuario implements Serializable{
         return senha;
     }
 
-    public String getNivelDeAcesso() {
-        return nivelDeAcesso;
-    }
-
-    public void setNivelDeAcesso(String nivelDeAcesso) {
-        this.nivelDeAcesso = nivelDeAcesso;
-    }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
-    
     
 }

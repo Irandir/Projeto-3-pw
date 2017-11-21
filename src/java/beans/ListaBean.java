@@ -5,10 +5,19 @@
  */
 package beans;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import model.Usuario;
+import model.DAO.hibernates.MulherHibernate;
+import model.DAO.hibernates.NivelHibernate;
+import model.DAO.hibernates.PesquisadorHibernate;
+import model.pojo.Mulher;
+import model.pojo.Nivel;
+import model.pojo.NivelAcessoEnum;
+import model.pojo.Pesquisador;
+import model.pojo.Usuario;
 
 /**
  *
@@ -17,11 +26,51 @@ import model.Usuario;
 @ManagedBean
 @SessionScoped
 public class ListaBean {
-    public String redireciona(){
-        Usuario usuario = (Usuario)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-        if(usuario.getNivelDeAcesso().equals("adm") || usuario.getNivelDeAcesso().equals("lid")){
+
+    private Pesquisador pesquisador;
+
+    public String redireciona() {
+        Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+
+        List<Pesquisador> pesquisadores = new PesquisadorHibernate().recuperarTodos();
+        pesquisador = (Pesquisador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pesquisador");
+
+        if (!pesquisador.getNivel().getNivel().equals("ESTAGIARIO")) {
+
             return "lista.xhtml";
         }
+
         return null;
     }
+
+    public List<Mulher> mulheres() {
+
+        int id_da_equipe = pesquisador.getEquipe().getId();
+
+        if (pesquisador.getNivel().getNivel().equals("ADMINISTRADOR")) {
+            return new MulherHibernate().recuperarTodos();
+        }
+
+        List<Pesquisador> todos = new PesquisadorHibernate().recuperarTodos();
+        List<Pesquisador> equipe = new ArrayList<>();
+        for (Pesquisador membro : todos) {
+            if (membro.getEquipe().getId() == id_da_equipe) {
+                equipe.add(membro);
+
+            }
+        }
+
+        List<Mulher> todas = new MulherHibernate().recuperarTodos();
+        List<Mulher> entrevistadas = new ArrayList<>();
+        for (Mulher mulher : todas) {
+            for (Pesquisador membro : equipe) {
+                if (membro.getId() == mulher.getPesquisador().getId()) {
+                    entrevistadas.add(mulher);
+
+                }
+            }
+        }
+        return entrevistadas;
+    }
+
 }

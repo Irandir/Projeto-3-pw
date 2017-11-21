@@ -12,8 +12,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
-import model.Usuario;
-import util.UsuarioDAO;
+import model.DAO.hibernates.UsuarioHibernate;
+import model.pojo.Usuario;
 
 /**
  *
@@ -26,7 +26,7 @@ public class IndexBean{
     private Usuario usuario = new Usuario();
     
     public String enviar() {
-        List<Usuario> usuarios = new UsuarioDAO().selectAll();
+        List<Usuario> usuarios = new UsuarioHibernate().recuperarTodos();
         boolean loginCorreto = false;
         for (Usuario usuario1 : usuarios) {
             if(usuario1.getLogin().equals(usuario.getLogin()) && usuario1.getSenha().equals(usuario.getSenha())){
