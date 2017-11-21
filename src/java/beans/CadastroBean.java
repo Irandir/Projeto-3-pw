@@ -23,9 +23,11 @@ import model.pojo.Usuario;
 @ManagedBean
 @SessionScoped
 public class CadastroBean {
+
     private Usuario usuario = new Usuario();
     private Pesquisador pesquisador = new Pesquisador();
     private Pesquisador pesquisadorLogado;
+
     public CadastroBean() {
     }
 
@@ -44,37 +46,45 @@ public class CadastroBean {
     public void setPesquisador(Pesquisador pesquisador) {
         this.pesquisador = pesquisador;
     }
-    
-    public String cadastrar(){
-        
-        if(pesquisadorLogado.getNivel().getNivel().equals("ADMINISTRADOR")){
+
+    public String cadastrar() {
+
+        if (pesquisadorLogado.getNivel().getNivel().equals("ADMINISTRADOR")) {
             Nivel nivel = new Nivel("LIDER");
             Equipe eq = new Equipe(pesquisador.getNome(), nivel);
-            
+
             pesquisador.setEquipe(eq);
             pesquisador.setNivel(nivel);
             pesquisador.setUsuario(usuario);
-            
+
             new UsuarioHibernate().insert(usuario);
             new EquipeHibernate().insert(eq);
             new PesquisadorHibernate().insert(pesquisador);
-        }else{
+        } else {
             Nivel nivel = new Nivel("ESTAGIARIO");
             pesquisador.setEquipe(pesquisadorLogado.getEquipe());
             pesquisador.setNivel(nivel);
             pesquisador.setUsuario(usuario);
-            
+
             new UsuarioHibernate().insert(usuario);
             new PesquisadorHibernate().insert(pesquisador);
         }
         return "concluido";
     }
-    
-    public String verificaNivel(){
+
+    public String verificaNivel() {
         pesquisadorLogado = (Pesquisador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pesquisador");
-        if(pesquisadorLogado.getNivel().getNivel().equals("ESTAGIARIO")){
+        if (pesquisadorLogado.getNivel().getNivel().equals("ESTAGIARIO")) {
             return null;
         }
         return "cadastro.xhtml";
     }
+
+    public String quem() {
+        if (pesquisadorLogado.getNivel().getNivel().equals("ADMINISTRADOR")) {
+            return "Líder";
+        }
+        return "Estagiário";
+    }
+
 }
