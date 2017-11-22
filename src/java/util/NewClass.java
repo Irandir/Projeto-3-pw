@@ -7,8 +7,10 @@ package util;
 
 import java.util.Date;
 import model.DAO.hibernates.CicloHibernate;
+import model.DAO.hibernates.EquipeHibernate;
 import model.DAO.hibernates.MulherHibernate;
 import model.DAO.hibernates.NivelHibernate;
+import model.DAO.hibernates.PesquisadorHibernate;
 import model.DAO.hibernates.UsuarioHibernate;
 import model.pojo.Ciclo;
 import model.pojo.Equipe;
@@ -25,24 +27,51 @@ import model.pojo.Usuario;
  */
 public class NewClass {
     public static void main(String[] args) {
-        /*CicloHibernate c = new CicloHibernate();
-        c.insert(new Ciclo(TipoEnum.REGULAR.toString()));
-        System.out.println(c.recuperarPorNome("REGULAR"));
-        System.out.println(c.recuperarTodos());*/
-    
-        Pesquisador p = new Pesquisador();
-        p.setId(0);
-        p.setEquipe(new Equipe("", new Nivel("LIDER")));
-        p.setNome("");
-        Usuario usuario = new Usuario("","");
-        usuario.setId(37);
-        p.setUsuario(usuario);
-        Ciclo c = new Ciclo();
-        c.setTipo("Regular");
-        Mulher m = new Mulher(2, "dsggfgfh", new Date(), c, new Date(), new Date(), null);
-        MulherHibernate u = new MulherHibernate();
+        Nivel nivel1 = new Nivel("ADMINISTRADOR");
+        Nivel nivel2 = new Nivel("LIDER");
+        Nivel nivel3 = new Nivel("ESTAGIARIO");
         
-        u.insert(m);
+        Ciclo ciclo = new Ciclo("Regular");
+        Ciclo ciclo2 = new Ciclo("Inregular");
+        
+        Usuario user = new Usuario("Aurora", "123");
+        Usuario user2 = new Usuario("Lider", "a");
+        Usuario user3 = new Usuario("Escravo", "b");
+        
+        Equipe eq = new Equipe("Aurora Aksnes", nivel1);
+        Equipe eq2 = new Equipe("Marcos Torcate", nivel2);
+        
+        Pesquisador pesquisador = new Pesquisador("Aurora Aksnes", nivel1, eq,user);
+        Pesquisador pesquisador2 = new Pesquisador("Marcos Torcate", nivel2, eq2,user2);
+        Pesquisador pesquisador3 = new Pesquisador("Rubens Silva", nivel3, eq2,user3);
+        
+        //cadastrando
+        UsuarioHibernate usuarioHibernate = new UsuarioHibernate();
+        EquipeHibernate equipeHibernate = new EquipeHibernate();
+        PesquisadorHibernate pesquisadorHibernate = new PesquisadorHibernate();
+        NivelHibernate nivelHibernate = new NivelHibernate();
+        CicloHibernate cicloHibernate = new CicloHibernate();
+        
+        cicloHibernate.insert(ciclo);
+        cicloHibernate.insert(ciclo2);
+        
+        nivelHibernate.insert(nivel1);
+        nivelHibernate.insert(nivel2);
+        nivelHibernate.insert(nivel3);
+        
+        
+        equipeHibernate.insert(eq);
+        equipeHibernate.insert(eq2);
+        
+        usuarioHibernate.insert(user);
+        usuarioHibernate.insert(user2);
+        usuarioHibernate.insert(user3);
+        
+        pesquisadorHibernate.insert(pesquisador);
+        pesquisadorHibernate.insert(pesquisador2);
+        pesquisadorHibernate.insert(pesquisador3);
+        
+        
         
     }
 }

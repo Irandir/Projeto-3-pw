@@ -40,7 +40,7 @@ public class FormularioBean {
             mulher.setPesquisador(pesquisador);
             new MulherHibernate().insert(mulher);
 
-        }else if(ciclo.getTipo().equals("Irregular")){
+        }else if(ciclo.getTipo().equals("Inregular")){
             pM = new ProximaMenstruacao(mulher.getUltimaMenstruacao(), d2).getpM();
   
             mulher.setPM(pM);

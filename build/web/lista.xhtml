@@ -2,22 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Lista</title>
     </h:head>
     #{logadoBean.redireciona()}
     <h:body>
 
-        <nav id="menu" class="menu">
-            <h1>Menu Princípal</h1>
-            <ul>
-                <li><a href="formulario.xhtml">FORMULARIO</a></li><br/>
-                <li><a href="#{listaBean.redireciona()}" >LISTA DE DADOS</a></li><br/>
-                <li><a href="#{cadastroBean.verificaNivel()}">CADASTRO</a></li><br/>
-                <li><a href="index.xhtml">SAIR</a></li>
-            </ul>
-        </nav>    
+       <ui:include src="menu.xhtml"/>  
 
         <h1>Lista</h1>
         <h:form id="carForm">
