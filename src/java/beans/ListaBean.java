@@ -27,31 +27,25 @@ import model.pojo.Usuario;
 @SessionScoped
 public class ListaBean {
 
-
-    private Pesquisador pesquisadorLogado;
-
-    public String redireciona() {
-        Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-
-        List<Pesquisador> pesquisadores = new PesquisadorHibernate().recuperarTodos();
-        pesquisadorLogado = (Pesquisador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pesquisador");
-
-        if (!pesquisadorLogado.getNivel().getNivel().equals("ESTAGIARIO")) {
-
-            return "lista.xhtml";
-        }
-
-        return null;
-    }
-
     public List<Mulher> mulheres() {
-
-        int id_da_equipe = pesquisadorLogado.getEquipe().getId();
+        Pesquisador pesquisadorLogado = (Pesquisador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pesquisador");
 
         if (pesquisadorLogado.getNivel().getNivel().equals("ADMINISTRADOR")) {
             return new MulherHibernate().recuperarTodos();
         }
 
+        List<Mulher> todas = new MulherHibernate().recuperarTodos();
+        List<Mulher> entrevistadas = new ArrayList<>();
+        if (pesquisadorLogado.getNivel().getNivel().equals("ESTAGIARIO")) {
+            for (Mulher mulher : todas) {
+                if (pesquisadorLogado.getId() == mulher.getPesquisador().getId()) {
+                    entrevistadas.add(mulher);
+                }
+            }
+            return entrevistadas;
+        }
+
+        int id_da_equipe = pesquisadorLogado.getEquipe().getId();
         List<Pesquisador> todos = new PesquisadorHibernate().recuperarTodos();
         List<Pesquisador> equipe = new ArrayList<>();
         for (Pesquisador membro : todos) {
@@ -61,8 +55,6 @@ public class ListaBean {
             }
         }
 
-        List<Mulher> todas = new MulherHibernate().recuperarTodos();
-        List<Mulher> entrevistadas = new ArrayList<>();
         for (Mulher mulher : todas) {
             for (Pesquisador membro : equipe) {
                 if (membro.getId() == mulher.getPesquisador().getId()) {
@@ -74,23 +66,7 @@ public class ListaBean {
         return entrevistadas;
     }
 
-    public Pesquisador getPesquisador() {
-        return pesquisadorLogado;
-    }
-
-    public void setPesquisador(Pesquisador pesquisador) {
-        this.pesquisadorLogado = pesquisador;
-    }
-
-    public Pesquisador getPesquisadorLogado() {
-        return pesquisadorLogado;
-    }
-
-    public void setPesquisadorLogado(Pesquisador pesquisadorLogado) {
-        this.pesquisadorLogado = pesquisadorLogado;
-    }
-
-    public String formateData(Date data){
+    public String formateData(Date data) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(data);
     }

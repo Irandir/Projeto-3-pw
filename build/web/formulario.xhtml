@@ -17,16 +17,16 @@
 
 	<h:form>
             <h:panelGrid columns="2" cellpadding="4">
-                <h:outputLabel value="Nome:"/>
+                <p:outputLabel value="Nome:"/>
                 <p:inputText id="nome" value="#{formularioBean.mulher.nome}"/>    
                 
-                <h:outputLabel value="Data que vc nascel:"/>
+                <p:outputLabel value="Data que vc nascel:"/>
                 <p:calendar id="data" value="#{formularioBean.mulher.nascimento}" pattern="dd-MM-yyyy" mask="true" />
                 
-                <h:outputLabel value="Ultima Menstruação:"/>
+                <p:outputLabel value="Ultima Menstruação:"/>
                 <p:calendar id="ultima" value="#{formularioBean.mulher.ultimaMenstruacao}" pattern="dd-MM-yyyy" mask="true" />
             
-                <h:outputLabel value="Tipo do ciclo:"/>
+                <p:outputLabel value="Tipo do ciclo:"/>
                 <p:selectOneRadio id="tipo" value="#{formularioBean.ciclo.tipo}">
                     <f:selectItem itemLabel="Regular" itemValue="Regular" />
                     <f:selectItem itemLabel="Irregular" itemValue="Irregular" />
@@ -36,7 +36,7 @@
             </h:panelGrid>
             
             <h:panelGrid columns="1" cellpadding="1">
-                <h:commandButton value="Enviar" action="#{formularioBean.cria}"/>
+                <p:commandButton value="Enviar" action="#{formularioBean.cria}"/>
             </h:panelGrid>
             
             

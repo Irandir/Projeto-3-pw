@@ -12,38 +12,37 @@
     <h:body>
 
         <ui:include src="menu.xhtml"/>      
-        
-        <h1>Cadastro #{cadastroBean.quem()}</h1>
 
-	<h:form>
+        <h1>Cadastro</h1>
+
+        <h:form>
             <h:panelGrid columns="2" cellpadding="4">
-                <h:outputLabel value="Nome Completo:"/>
+                <p:outputLabel value="Nome Completo:"/>
                 <p:inputText id="nome" value="#{cadastroBean.pesquisador.nome}"/>    
-                
-                <h:outputLabel value="Login:"/>
+
+                <p:outputLabel value="Login:"/>
                 <p:inputText id="login" value="#{cadastroBean.usuario.login}"/>
-                
-                <h:outputLabel value="Senha:"/>
+
+                <p:outputLabel value="Senha:"/>
                 <p:password id="senha" value="#{cadastroBean.usuario.senha}"/>
                 
-                
-      
-                <!--h:outputLabel value="Tipo do ciclo:"/>
-                <p:selectOneRadio id="tipo" value="">
-                    <f:selectItem itemLabel="Regular" itemValue="Regular" />
-                    <f:selectItem itemLabel="Irregular" itemValue="Irregular" />
-                </p:selectOneRadio-->
-            
-                
+                <p:outputLabel value="Nivel do Usuario:"/>
+                <p:selectOneMenu id="txt3" value="#{cadastroBean.nivel.nivel}" required="true" >
+                    <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                    <f:selectItem itemLabel="ADMINISTRADOR" itemValue="ADMINISTRADOR" />
+                    <f:selectItem itemLabel="LIDER" itemValue="LIDER" />
+                    <f:selectItem itemLabel="ESTAGIARIO" itemValue="ESTAGIARIO" />
+                </p:selectOneMenu>
+
             </h:panelGrid>
-            
+
             <h:panelGrid columns="1" cellpadding="1">
-                <h:commandButton value="Enviar" action="#{cadastroBean.cadastrar()}"/>
+                <p:commandButton value="Enviar" action="#{cadastroBean.cadastrar()}"/>
             </h:panelGrid>
-            
-            
+
+
         </h:form>
-        
+
     </h:body>
 </html>
 

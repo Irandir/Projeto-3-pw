@@ -12,12 +12,15 @@
             <h1>Sistema para pesquisa de durabilidade do ciclo menstrual</h1>
             <strong>Faça o login para usar</strong>
         <h:form>
-            <h:panelGrid columns="2" cellpadding="3">
-                Login: <p:inputText id="login" label="Login" value="#{indexBean.usuario.login}" required="true"/>
-                Senha: <p:password id="senha" label="Senha" value="#{indexBean.usuario.senha}" required="true"/>
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel value="Login:"/>
+                <p:inputText id="login" label="Login" value="#{indexBean.usuario.login}" required="true"/>
+                <p:outputLabel value="Senha:"/>
+                <p:password id="senha" label="Senha" value="#{indexBean.usuario.senha}" required="true"/>
                 <h:messages id="men" style="color: red"/>
-                <p:commandButton value="Logar" action="#{indexBean.enviar}"/>
+                
             </h:panelGrid>
+            <p:commandButton value="Logar" action="#{indexBean.enviar}"/>
         </h:form>
        </center>
     </h:body>

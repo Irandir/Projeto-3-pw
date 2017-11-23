@@ -6,9 +6,7 @@
 package beans;
 
 import calculo.ProximaMenstruacao;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import model.DAO.hibernates.MulherHibernate;

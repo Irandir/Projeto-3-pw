@@ -52,4 +52,7 @@ public class Equipe implements Serializable {
     public void setNivel(Nivel nivel) {
         this.nivel = nivel;
     }
+
+
+    
 }
