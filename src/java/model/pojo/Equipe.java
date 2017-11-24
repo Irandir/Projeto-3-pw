@@ -53,6 +53,8 @@ public class Equipe implements Serializable {
         this.nivel = nivel;
     }
 
-
-    
+    public void setId(int id) {
+        this.id = id;
+    }
+   
 }

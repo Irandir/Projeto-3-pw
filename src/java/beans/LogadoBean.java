@@ -22,8 +22,13 @@ import model.pojo.Usuario;
 @ManagedBean
 @SessionScoped
 public class LogadoBean {
-     public void redireciona() throws IOException{
-        Usuario usuario = (Usuario)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+    
+    private Usuario usuario; 
+    
+  
+    
+    public void redireciona() throws IOException{
+        usuario = (Usuario)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         
         if(usuario==null){
             FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
@@ -37,4 +42,19 @@ public class LogadoBean {
         }
         
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String nomeDoUsuario() {
+       return ((Pesquisador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pesquisador")).getNome();
+    }
+
+   
+    
 }

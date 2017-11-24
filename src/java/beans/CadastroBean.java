@@ -23,7 +23,6 @@ import model.pojo.Usuario;
  * @author Irandir
  */
 @ManagedBean
-@SessionScoped
 public class CadastroBean {
 
     private Usuario usuario = new Usuario();

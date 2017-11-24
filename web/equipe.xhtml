@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Equipes</title>
+    </h:head>
+    #{logadoBean.redireciona()}
+
+    <h:body>
+        <ui:include src="menu.xhtml"/> 
+        <h1>Equipes</h1>
+        <ul>
+            <li><a href="nova_equipe2.xhtml">NOVA EQUIPE</a></li><br/>
+            <li><a href="alteracao_equipe.xhtml">ALTERAÇÃO DE EQUIPE</a></li><br/>
+        </ul>
+        <h:form>
+            <p:commandButton value="NOVA EQUIPE" onclick="#{novaEquipeBean2.mostrarMensagem()}" action="#{novaEquipeBean2.verificaSePodeCriarNovaEquipe()}" />
+        </h:form>
+ 
+        <p:dialog header="Falta de Estagiário" widgetVar="dlg1" minHeight="40">
+            <h:outputText value="Não existe estagiários disponíveis cadastre novos pesquisadores" />
+        </p:dialog>
+        <p:dialog header="Falta de Lideres" widgetVar="dlg2" minHeight="40">
+            <h:outputText value="Não existe lideres disponíveis cadastre novos pesquisadores" />
+        </p:dialog>
+        <p:dialog header="Pequisador já tem equipe" widgetVar="dlg3" minHeight="40">
+            <h:outputText value="Você não pode cria uma nova equipe" />
+        </p:dialog>
+        
+   
+        
+    
+        
+    </h:body>
+</html>
+
