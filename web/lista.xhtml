@@ -10,50 +10,48 @@
     #{logadoBean.redireciona()}
     <h:body>
 
-       <ui:include src="menu.xhtml"/>  
+        <ui:include src="menu.xhtml"/>  
 
         <h1>Lista</h1>
-        <h:form id="carForm">
-            <p:fieldset id="availableCarsField" legend="Entrevistadas">
-                <p:dataTable id="availableMulher" var="mulher" value="#{listaBean.mulheres()}">
-                    <p:column style="width:20px">
-                        <h:outputText id="dragIcon" styleClass="ui-icon ui-icon-arrow-4" />
-                        <p:draggable for="dragIcon" revert="true" helper="clone"/>
-                    </p:column>
 
-                    <p:column headerText="Id">
-                        <h:outputText value="#{mulher.id}" />
-                    </p:column>
+        <p:fieldset id="availableCarsField" legend="Entrevistadas">
+            <p:dataTable id="availableMulher" var="mulher" value="#{listaBean.mulheres()}">
+                <p:column style="width:20px">
+                    <h:outputText id="dragIcon" styleClass="ui-icon ui-icon-arrow-4" />
+                    <p:draggable for="dragIcon" revert="true" helper="clone"/>
+                </p:column>
 
-                    <p:column headerText="Nome">
-                        <h:outputText value="#{mulher.nome}" />
-                    </p:column>
+                <p:column headerText="Id">
+                    <h:outputText value="#{mulher.id}" />
+                </p:column>
 
-                    <p:column headerText="Nascimento">
-                        <h:outputText value="#{listaBean.formateData(mulher.nascimento)}" />
-                    </p:column>
+                <p:column headerText="Nome">
+                    <h:outputText value="#{mulher.nome}" />
+                </p:column>
 
-                    <p:column headerText="Tipo">
-                        <h:outputText value="#{mulher.tipo.tipo}" />
-                    </p:column>
+                <p:column headerText="Nascimento">
+                    <h:outputText value="#{listaBean.formateData(mulher.nascimento)}" />
+                </p:column>
 
-                    <p:column headerText="Ultima Menstruação">
-                        <h:outputText value="#{listaBean.formateData(mulher.ultimaMenstruacao)}" />
-                    </p:column>
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{mulher.tipo.tipo}" />
+                </p:column>
 
-                    <p:column headerText="Proxima Menstruação">
-                        <h:outputText value="#{listaBean.formateData(mulher.PM)}" />
-                    </p:column> 
-                    <p:column headerText="Equipe">
-                        <h:outputText value="#{mulher.pesquisador.equipe.nome}" />
-                    </p:column>
-                    <p:column headerText="Pesquisador">
-                        <h:outputText value="#{mulher.pesquisador.nome}" />
-                    </p:column>
-                </p:dataTable>
-            </p:fieldset>
+                <p:column headerText="Ultima Menstruação">
+                    <h:outputText value="#{listaBean.formateData(mulher.ultimaMenstruacao)}" />
+                </p:column>
 
-        </h:form>
+                <p:column headerText="Proxima Menstruação">
+                    <h:outputText value="#{listaBean.formateData(mulher.PM)}" />
+                </p:column> 
+                <p:column headerText="Equipe">
+                    <h:outputText value="#{mulher.pesquisador.equipe.nome}" />
+                </p:column>
+                <p:column headerText="Pesquisador">
+                    <h:outputText value="#{mulher.pesquisador.nome}" />
+                </p:column>
+            </p:dataTable>
+        </p:fieldset>
 
     </h:body>
 </html>

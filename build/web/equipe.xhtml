@@ -13,12 +13,10 @@
     <h:body>
         <ui:include src="menu.xhtml"/> 
         <h1>Equipes</h1>
-        <ul>
-            <li><a href="nova_equipe2.xhtml">NOVA EQUIPE</a></li><br/>
-            <li><a href="alteracao_equipe.xhtml">ALTERAÇÃO DE EQUIPE</a></li><br/>
-        </ul>
+        
         <h:form>
             <p:commandButton value="NOVA EQUIPE" onclick="#{novaEquipeBean2.mostrarMensagem()}" action="#{novaEquipeBean2.verificaSePodeCriarNovaEquipe()}" />
+            <p:commandButton value="MINHA DE EQUIPE" onclick="#{minhaEquipeBean.mostrarMensagem()}" action="#{minhaEquipeBean.verificaEquipeMinha()}" />
         </h:form>
  
         <p:dialog header="Falta de Estagiário" widgetVar="dlg1" minHeight="40">
@@ -29,6 +27,9 @@
         </p:dialog>
         <p:dialog header="Pequisador já tem equipe" widgetVar="dlg3" minHeight="40">
             <h:outputText value="Você não pode cria uma nova equipe" />
+        </p:dialog>
+        <p:dialog header="Você NÂO tem uma equipe" widgetVar="dlg4" minHeight="40">
+            <h:outputText value="Você deve cria uma nova equipe" />
         </p:dialog>
         
    
