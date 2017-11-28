@@ -7,41 +7,42 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Formulario</title>
+        <h:outputStylesheet library="CSS" name="estilo.css" />
     </h:head>
     #{logadoBean.redireciona()}
     <h:body>
 
-       <ui:include src="menu.xhtml"/>      
-        
-        <h1>Pesquisa da saúde da mulher.</h1>
+        <ui:include src="menu.xhtml"/>      
 
-	<h:form>
-            <h:panelGrid columns="2" cellpadding="4">
-                <p:outputLabel value="Nome:"/>
-                <p:inputText id="nome" value="#{formularioBean.mulher.nome}"/>    
-                
-                <p:outputLabel value="Data que vc nascel:"/>
-                <p:calendar id="data" value="#{formularioBean.mulher.nascimento}" pattern="dd-MM-yyyy" mask="true" />
-                
-                <p:outputLabel value="Ultima Menstruação:"/>
-                <p:calendar id="ultima" value="#{formularioBean.mulher.ultimaMenstruacao}" pattern="dd-MM-yyyy" mask="true" />
-            
-                <p:outputLabel value="Tipo do ciclo:"/>
-                <p:selectOneRadio id="tipo" value="#{formularioBean.ciclo.tipo}">
-                    <f:selectItem itemLabel="Regular" itemValue="Regular" />
-                    <f:selectItem itemLabel="Irregular" itemValue="Irregular" />
-                </p:selectOneRadio>
-            
-                
-            </h:panelGrid>
-            
-            <h:panelGrid columns="1" cellpadding="1">
-                <p:commandButton value="Enviar" action="#{formularioBean.cria}"/>
-            </h:panelGrid>
-            
-            
+        <h1>Pesquisa da Saúde da Mulher.</h1>
+
+        <h:form>
+            <p:panel header="">
+                <h:panelGrid columns="2" cellpadding="4">
+                    <p:outputLabel value="Nome:"/>
+                    <p:inputText id="nome" value="#{formularioBean.mulher.nome}" size="50" /> 
+                    <p:outputLabel value="Data de Nascimento:"/>
+                    <p:calendar id="data" value="#{formularioBean.mulher.nascimento}" pattern="dd-MM-yyyy" mask="true" size="50" />
+
+                    <p:outputLabel value="Data de última Menstruação:"/>
+                    <p:calendar id="ultima" value="#{formularioBean.mulher.ultimaMenstruacao}" pattern="dd-MM-yyyy" mask="true" size="50" />
+
+                    <p:outputLabel value="Tipo do ciclo:"/>
+                    <p:selectOneRadio id="tipo" value="#{formularioBean.ciclo.tipo}">
+                        <f:selectItem itemLabel="Regular" itemValue="Regular" />
+                        <f:selectItem itemLabel="Irregular" itemValue="Irregular" />
+                    </p:selectOneRadio>
+
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="1" cellpadding="1">
+                    <p:commandButton value="Enviar" action="#{formularioBean.cria}"/>
+                </h:panelGrid>
+
+            </p:panel>
         </h:form>
-        
+
     </h:body>
 </html>
 

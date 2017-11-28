@@ -4,7 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Irandir/Documents/NetBeansProjects/projeto-3-pw/web/index.xhtml</file>
-            <file>file:/C:/Users/Irandir/Documents/NetBeansProjects/projeto-3-pw/web/resource/css/estilo.css</file>
+            <file>file:/C:/Users/Irandir/Documents/NetBeansProjects/projeto-3-pw/web/resources/CSS/estilo.css</file>
+            <file>file:/C:/Users/Irandir/Documents/NetBeansProjects/projeto-3-pw/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Irandir/Documents/NetBeansProjects/projeto-3-pw/src/java/Imagens/projeto-pw.png</file>
         </group>
     </open-files>
 </project-private>

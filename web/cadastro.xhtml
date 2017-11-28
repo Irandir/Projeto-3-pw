@@ -7,6 +7,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Formulario</title>
+         <h:outputStylesheet library="CSS" name="estilo.css" />
     </h:head>
     #{logadoBean.redireciona()}
     <h:body>
@@ -16,18 +17,20 @@
         <h1>Cadastro</h1>
 
         <h:form>
+             <p:panel header="Cadastro">
             <h:panelGrid columns="2" cellpadding="4">
                 <p:outputLabel value="Nome Completo:"/>
-                <p:inputText id="nome" value="#{cadastroBean.pesquisador.nome}"/>    
+                <p:inputText id="nome" value="#{cadastroBean.pesquisador.nome}" size="50"/>    
 
                 <p:outputLabel value="Login:"/>
-                <p:inputText id="login" value="#{cadastroBean.usuario.login}"/>
+                <p:inputText id="login" value="#{cadastroBean.usuario.login}" size="50"/>
 
                 <p:outputLabel value="Senha:"/>
-                <p:password id="senha" value="#{cadastroBean.usuario.senha}"/>
+                <p:password id="senha" value="#{cadastroBean.usuario.senha}" size="50"/>
+            
                 
                 <p:outputLabel value="Nivel do Usuario:"/>
-                <p:selectOneMenu id="txt3" value="#{cadastroBean.nivel.nivel}" required="true" >
+                <p:selectOneMenu id="txt3" value="#{cadastroBean.nivel.nivel}" required="true"  >
                     <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
                     <f:selectItem itemLabel="ADMINISTRADOR" itemValue="ADMINISTRADOR" />
                     <f:selectItem itemLabel="LÍDER" itemValue="LIDER" />
@@ -35,10 +38,12 @@
                 </p:selectOneMenu>
 
             </h:panelGrid>
+                   
 
             <h:panelGrid columns="1" cellpadding="1">
                 <p:commandButton value="Enviar" action="#{cadastroBean.cadastrar()}"/>
             </h:panelGrid>
+                 </p:panel> 
 
 
         </h:form>

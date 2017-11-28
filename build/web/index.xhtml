@@ -10,21 +10,32 @@
     </h:head>
     #{sairBean.logooff()}
     <h:body>
+        
+        <p:graphicImage library="Imagens" name="projeto-pw.png" width="400" id="figura" />
         <center>
-            <h1>Sistema para pesquisa de durabilidade do ciclo menstrual</h1>
-            <strong>Faça o login para usar</strong>
+            <h1>Sistema para Pesquisa de Durabilidade do Ciclo Menstrual</h1>
+           
         <h:form>
+            <p:panel header="Faça seu Login">
             <h:panelGrid columns="2" cellpadding="5">
                 <p:outputLabel value="Login:"/>
-                <p:inputText id="login" label="Login" value="#{indexBean.usuario.login}" required="true"/>
+                <p:inputText id="login" label="Login" value="#{indexBean.usuario.login}" required="true" size="50"/>
                 <p:outputLabel value="Senha:"/>
-                <p:password id="senha" label="Senha" value="#{indexBean.usuario.senha}" required="true"/>
+                <p:password id="senha" label="Senha" value="#{indexBean.usuario.senha}" required="true" size="50"/>
                 <h:messages id="men" style="color: red"/>
-                
+            
             </h:panelGrid>
+           
             <p:commandButton value="Logar" action="#{indexBean.enviar}"/>
+              </p:panel>
         </h:form>
        </center>
-    </h:body>
+       <footer>
+            <P>
+                © 2017 - Equipe 2 - Homem de Ferro! - Todos os direitos reservados.
+            </P>
+        </footer>
+       
+     </h:body>
 </html>
 

@@ -1,9 +1,50 @@
 @charset "UTF-8";
 
 html{
-    background-color: pink;
+    background-color: mintcream;
 }
+p{
+    text-align: center;
+}
+#figura{
+    position: relative;
+    left: 35%;
+}
+
+
 h1{
-    color: aqua;
-    background-color: blue;
+    color: mintcream;
+    background-color: fuchsia;
+    text-align: center;
 }
+
+footer {
+    position: absolute;
+    top: 100%;
+    color: whitesmoke;
+    text-align: 40%;
+    background-color: fuchsia;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px 0px 10px black;
+}
+.footer p{
+    margin-left: -500px;
+    margin-top: 10px;
+}
+#menu ul{
+    list-style: none;
+    position: relative;
+    left: -2%;
+    text-align: center;
+}
+#menu li {
+    display: inline-block;
+    padding: 10px;
+    transition: background-color 1s;
+}
+#menu a{
+     display: inline-block;
+     text-decoration: none;
+}
+
